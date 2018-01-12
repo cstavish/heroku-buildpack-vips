@@ -34,7 +34,7 @@ curl -s $TARBALL_URL | tar xz -C $output_dir
 
 echo "Downloading additional dependencies" | indent
 curl -s https://s3.amazonaws.com/proscia-viewer/additional_deps.tar.gz.enc -O
-openssl enc -d -aes-256-cbc -in additional_deps.tar.gz.enc -out additional_deps.tar.gz -kfile $ENV_DIR/DEPENDENCIES_KEY
+openssl enc -d -aes-256-cbc -in additional_deps.tar.gz.enc -out additional_deps.tar.gz -kfile $ENVFILE/DEPENDENCIES_KEY
 tar xzf additional_deps.tar.gz -C $output_dir
 
 if [ $? != 0 ]; then
