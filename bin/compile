@@ -33,7 +33,7 @@ echo "Downloading libvips from $TARBALL_URL and unpacking" | indent
 curl -s $TARBALL_URL | tar xz -C $output_dir
 
 echo "Downloading additional dependencies" | indent
-curl -s https://s3.amazonaws.com/proscia-viewer/additional_deps.tar.gz.enc .
+curl -s https://s3.amazonaws.com/proscia-viewer/additional_deps.tar.gz.enc -O
 openssl enc -d -aes-256-cbc -in additional_deps.tar.gz.enc -out additional_deps.tar.gz -k $DEPENDENCIES_KEY
 tar xzf additional_deps.tar.gz -C $output_dir
 
