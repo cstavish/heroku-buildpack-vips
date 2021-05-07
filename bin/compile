@@ -37,6 +37,8 @@ curl -s https://s3.amazonaws.com/proscia-viewer/additional_deps.tar.gz.enc -O
 openssl enc -d -aes-256-cbc -in additional_deps.tar.gz.enc -out additional_deps.tar.gz -pass file:$ENVFILE/DEPENDENCIES_KEY -md md5
 tar xzf additional_deps.tar.gz -C $output_dir
 
+rm additional_deps.tar.gz additional_deps.tar.gz.enc
+
 if [ $? != 0 ]; then
   echo "Error downloading vips and unpacking to build dir" | indent
   exit 1
